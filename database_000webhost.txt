@@ -1,0 +1,43 @@
+database-webhost
+
+dbname 		:	id16499214_ct_db
+username	:	rodel
+pass		:	wGpqyd%dIq-dP(7Q
+
+
+
+MySQL Execution Documentation
+
+//Creating Database
+CREATE SCHEMA `id16499214_ct_db` ;
+
+
+//Create table tblmembers
+CREATE TABLE `id16499214_ct_db`.`tblmembers` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `QRCODE` VARCHAR(45) NULL,
+  `SUFFIX` VARCHAR(5) NULL,
+  `FNAME` VARCHAR(45) NULL,
+  `MNAME` VARCHAR(45) NULL,
+  `LNAME` VARCHAR(45) NULL,
+  `GENDER` VARCHAR(8) NULL,
+  `CIVIL` VARCHAR(12) NULL,
+  `BDATE` DATE NULL,
+  `ADDRESS` TEXT NULL,
+  `EMAIL` VARCHAR(45) NULL,
+  `CONTACT` VARCHAR(45) NULL,
+  `USERNAME` VARCHAR(45) NULL,
+  `PWORD` VARCHAR(45) NULL,
+  `CREATEDDATE` DATETIME NULL,
+  `REGLOCATION` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`));
+
+
+//Create table tbladmins
+CREATE TABLE `id16499214_ct_db`.`tbladmins` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `FULLNAME` VARCHAR(70) NULL,
+  `USERNAME` VARCHAR(45) NULL,
+  `PASSWORD` VARCHAR(45) NULL,
+  `REGLOCATION` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`));
