@@ -45,6 +45,7 @@ function App() {
           <div className="main-body">
             <Switch>
               <Route path="/" exact component={Home}></Route>
+              <Route path="/ietimarikina" exact component={Home}></Route>
               <Route path="/member-signup" component={MemberSignup}></Route>
               <Route path="/member-login" component={MemberLogin}></Route>
               <Route path="/member-user" component={MemberUser}></Route>
