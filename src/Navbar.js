@@ -18,6 +18,7 @@ import { NavLink } from "react-router-dom";
 import { CenterFocusStrong } from "@material-ui/icons";
 import PersonIcon from "@material-ui/icons/Person";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import CropFreeIcon from "@material-ui/icons/CropFree";
 
 import Cookies from "js-cookie";
 
@@ -142,6 +143,20 @@ export default function Navbar(props) {
               <PersonAddIcon />
             </ListItemIcon>
             <ListItemText primary="Members Sign up" />
+          </ListItem>
+
+          {/* Member Sign up */}
+          <ListItem
+            button
+            component={NavLink}
+            exact
+            activeStyle={activeNavStyle}
+            to="/testqrscanner"
+          >
+            <ListItemIcon>
+              <CropFreeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Test QR Scanner" />
           </ListItem>
         </List>
       </div>

@@ -14,6 +14,7 @@ import adminregister from "./AdminRegister";
 import adminList from "./AdminList";
 import adminModify from "./AdminModify";
 import Cookies from "js-cookie";
+import ScanTest from "./ScanQRTest";
 
 // NavBar
 import Navbar from "./Navbar";
@@ -57,7 +58,7 @@ function App() {
               <Route path="/admin-register" component={adminregister}></Route>
               <Route path="/admin-list" component={adminList}></Route>
               <Route path="/admin-modify" component={adminModify}></Route>
-
+              <Route path="/testqrscanner" component={ScanTest}></Route>
               <Route component={Errlocation} />
             </Switch>
           </div>
