@@ -23,6 +23,7 @@ import Cookies from "js-cookie";
 //Material-ui-ICONS
 import DataUsageIcon from "@material-ui/icons/DataUsage";
 import SearchIcon from "@material-ui/icons/Search";
+import HomeIcon from "@material-ui/icons/Home";
 
 // Designer
 const useStyles = makeStyles((theme) => ({
