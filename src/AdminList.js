@@ -119,6 +119,10 @@ function AdminList() {
     getData();
   };
 
+  const returnHome = () => {
+    history.push("/administrator");
+  };
+
   const adminLocation = Cookies.get("adminLocation");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -222,6 +226,17 @@ function AdminList() {
                 startIcon={<SearchIcon />}
               >
                 {values.regButtonVal}
+              </Button>
+
+              <Button
+                className={classes.margin}
+                variant="contained"
+                color="default"
+                onClick={returnHome}
+                disabled={values.regDisabled}
+                startIcon={<HomeIcon />}
+              >
+                Back to Main Menu
               </Button>
             </Grid>
           </Grid>
