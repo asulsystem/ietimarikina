@@ -10,7 +10,7 @@ function Footer() {
           {/* Lark Street Sta. Elena Marikina city 1800
         <br /> */}
           IETI Marikina Contact Tracing QR Code Solution &copy;
-          {new Date().getFullYear()} AsuL
+          {new Date().getFullYear()} BSIT S8C4-2021-AsuL
         </p>
       </div>
     </>
