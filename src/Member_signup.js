@@ -134,12 +134,24 @@ export default function Member_signup() {
   };
 
   const handleChangePasswordVerifier = (prop, errprop) => (event) => {
-    let errStat = event.target.value === values.middleName ? true : false;
-    console.log(errStat);
+    let errStat = event.target.value === values.confirmPassword ? false : true;
+    // console.log(errStat);
     setValues({
       ...values,
       [prop]: event.target.value,
       [errprop]: errStat,
+      errConfirmPass: errStat,
+    });
+  };
+
+  const handleChangePasswordVerifierConfirm = (prop, errprop) => (event) => {
+    let errStat = event.target.value === values.mypassword ? false : true;
+    // console.log(errStat);
+    setValues({
+      ...values,
+      [prop]: event.target.value,
+      [errprop]: errStat,
+      errMyPassword: errStat,
     });
   };
 
@@ -190,9 +202,7 @@ export default function Member_signup() {
       method: "GET",
       params: {
         qrcode: md5(
-          `${values.firstName
-            .toUpperCase()
-            .trim()}${values.middleName
+          `${values.firstName.toUpperCase().trim()}${values.middleName
             .toUpperCase()
             .trim()}${values.lastName.toUpperCase().trim()}${values.birthDate}`
         ),
@@ -238,15 +248,11 @@ export default function Member_signup() {
         username: values.username.trim(),
         password: md5(values.mypassword),
         qrcode: md5(
-          `${values.firstName
-            .toUpperCase()
-            .trim()}${values.middleName
+          `${values.firstName.toUpperCase().trim()}${values.middleName
             .toUpperCase()
             .trim()}${values.lastName.toUpperCase().trim()}${values.birthDate}`
         ),
-        qrvalue: `${values.firstName
-          .toUpperCase()
-          .trim()}${values.middleName
+        qrvalue: `${values.firstName.toUpperCase().trim()}${values.middleName
           .toUpperCase()
           .trim()}${values.lastName.toUpperCase().trim()}${values.birthDate}`,
       },
@@ -543,7 +549,7 @@ export default function Member_signup() {
               placeholder="Password"
               type={values.showPassword ? "text" : "password"}
               value={values.mypassword}
-              onChange={handleChangeValidateValues(
+              onChange={handleChangePasswordVerifier(
                 "mypassword",
                 "errMyPassword"
               )}
@@ -583,7 +589,7 @@ export default function Member_signup() {
               placeholder="Confirm Password"
               type={values.confShowPassword ? "text" : "password"}
               value={values.confirmPassword}
-              onChange={handleChangePasswordVerifier(
+              onChange={handleChangePasswordVerifierConfirm(
                 "confirmPassword",
                 "errConfirmPass"
               )}
@@ -675,18 +681,3 @@ export default function Member_signup() {
     </>
   );
 }
-
-// const handleClickRegister = (event) => {
-
-//   const apiUrl =
-//     "http://localhost:1974/member/0af88d951bb1699ccf65e46ad1f4b8f1";
-
-//   fetch(apiUrl, {
-//     method: "GET",
-//     headers: {
-//       Accept: "application/json",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => console.log("This is your data", data));
-// };

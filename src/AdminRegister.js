@@ -109,7 +109,7 @@ export default function Member_signup() {
 
   const handleChangeValidateValues = (prop, errprop) => (event) => {
     let errStat = event.target.value.length > 0 ? false : true;
-    console.log(errStat);
+    // console.log(errStat);
     setValues({
       ...values,
       [prop]: event.target.value,
@@ -118,15 +118,26 @@ export default function Member_signup() {
   };
 
   const handleChangePasswordVerifier = (prop, errprop) => (event) => {
-    let errStat = event.target.value === values.middleName ? true : false;
-    console.log(errStat);
+    let errStat = event.target.value === values.confirmPassword ? false : true;
+    // console.log(errStat);
     setValues({
       ...values,
       [prop]: event.target.value,
       [errprop]: errStat,
+      errConfirmPass: errStat,
     });
   };
 
+  const handleChangePasswordVerifierConfirm = (prop, errprop) => (event) => {
+    let errStat = event.target.value === values.mypassword ? false : true;
+    // console.log(errStat);
+    setValues({
+      ...values,
+      [prop]: event.target.value,
+      [errprop]: errStat,
+      errMyPassword: errStat,
+    });
+  };
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -176,7 +187,7 @@ export default function Member_signup() {
       },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         res.data.success
           ? insertRecord()
           : setValues({
@@ -191,7 +202,7 @@ export default function Member_signup() {
       })
 
       .catch((error) => {
-        console.log("Verify plang ", error);
+        // console.log("Verify plang ", error);
         handleRegisterError();
       });
   };
@@ -372,7 +383,7 @@ export default function Member_signup() {
               placeholder="Password"
               type={values.showPassword ? "text" : "password"}
               value={values.mypassword}
-              onChange={handleChangeValidateValues(
+              onChange={handleChangePasswordVerifier(
                 "mypassword",
                 "errMyPassword"
               )}
@@ -412,7 +423,7 @@ export default function Member_signup() {
               placeholder="Confirm Password"
               type={values.confShowPassword ? "text" : "password"}
               value={values.confirmPassword}
-              onChange={handleChangePasswordVerifier(
+              onChange={handleChangePasswordVerifierConfirm(
                 "confirmPassword",
                 "errConfirmPass"
               )}

@@ -76,8 +76,11 @@ function AdminScan() {
 
   const handleScan = (data) => {
     if (data) {
-      setValues({ ...values, result: "Please Wait", isScanLoading: true });
-      getData(data);
+      setValues({
+        ...values,
+        result: "Scanner Is Working!",
+        isScanLoading: true,
+      });
     }
   };
   const handleError = (err) => {
@@ -90,50 +93,13 @@ function AdminScan() {
   };
 
   const adminLocation = Cookies.get("adminLocation");
-
   const getData = (data) => {
-    axios({
-      url: `${global.ServerHost}/addtracelog`,
-      method: "GET",
-      params: {
-        qrcode: data,
-        mylocation: values.myLocation,
-      },
-    })
-      .then((res) => {
-        if (res.data.success) {
-          setValues({
-            ...values,
-            result: res.data.rows[0].FNAME + " " + res.data.rows[0].LNAME,
-            isScanLoading: false,
-          });
-        } else {
-          setValues({
-            ...values,
-            result: "invalid Qr Code!",
-            isScanLoading: false,
-          });
-        }
-      })
-
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const getQRFromCookies = () => {
     setValues({
       ...values,
-      myLocation: adminLocation,
-      isLoading: false,
-      showLoginButton: adminLocation ? false : true,
+      result: `Scanner Is Working!`,
+      isScanLoading: false,
     });
   };
-
-  // START UP
-  useEffect(() => {
-    getQRFromCookies();
-  }, []);
 
   const theQRScanner = () => {
     if (!values.isScanLoading) {

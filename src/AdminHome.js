@@ -177,6 +177,7 @@ function AdminHome() {
             size="large"
             variant="contained"
             color="primary"
+            disabled
             // onClick={}
             style={{ padding: 29, margin: 10, width: 250 }}
             startIcon={<PeopleIcon />}
@@ -205,7 +206,7 @@ function AdminHome() {
             Admin List
           </Button>
 
-          <Button
+          {/* <Button
             size="large"
             variant="contained"
             color="primary"
@@ -214,7 +215,7 @@ function AdminHome() {
             startIcon={<PeopleIcon />}
           >
             Modify Admin Account
-          </Button>
+          </Button> */}
         </Paper>
 
         <Paper className={classes.paperRight}>
